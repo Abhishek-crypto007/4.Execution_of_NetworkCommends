@@ -23,47 +23,36 @@ This commands includes
 • Other IP Commands e.g. show ip route etc.
 <BR>
 
-## PROGRAM
-### Server
-```python3
-import socket
-from pythonping import ping
-
-s = socket.socket()
-s.bind(("localhost", 8000))
-s.listen(5)
-
-print("Server started...")
-
-c, addr = s.accept()
-print("Connected to", addr)
-
-while True:
-    hostname = c.recv(1024).decode()
-
-    if not hostname:
-        break
-
-    try:
-        result = ping(hostname, verbose=False)
-        c.send(str(result).encode())
-    except Exception:
-        c.send("Not Found".encode())
-```
-### Client
-```python3
-import socket
-
-s = socket.socket()
-s.connect(("localhost", 8000))
-
-while True:
-    ip = input("Enter the website you want to ping: ")
-    s.send(ip.encode())
-    print(s.recv(1024).decode())
-```
 ## Output
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/4aa81a89-6ac3-4c7e-8a3c-0ca1dc512a10" />
+### netstat
+<img width="1366" height="768" alt="Screenshot 2026-05-25 082420" src="https://github.com/user-attachments/assets/11ac664f-2e71-4112-b28d-f8f65c069c02" />
+
+### ipconfig
+<img width="1366" height="768" alt="Screenshot 2026-05-25 082505" src="https://github.com/user-attachments/assets/74236023-efb3-4851-8920-84ad33aaa304" />
+
+### ping
+<img width="1366" height="768" alt="Screenshot 2026-05-25 082607" src="https://github.com/user-attachments/assets/37557144-5c30-4177-9a98-f6d9feca1810" />
+
+### tracert
+<img width="1366" height="768" alt="Screenshot 2026-05-25 082743" src="https://github.com/user-attachments/assets/8dcd4142-b4cb-4b89-871b-61faa3abfe10" />
+
+### nslookup
+<img width="1366" height="768" alt="Screenshot 2026-05-25 083007" src="https://github.com/user-attachments/assets/3c15f154-2813-483d-9e70-9923858e59e8" />
+
+### hostname
+<img width="1366" height="768" alt="Screenshot 2026-05-25 083439" src="https://github.com/user-attachments/assets/c16fe64d-224d-4e33-9168-77e3ff35252e" />
+
+### nbtstat
+
+<img width="1366" height="768" alt="Screenshot 2026-05-25 083521" src="https://github.com/user-attachments/assets/d36882a8-6193-479c-b8b1-edc6aa063b9b" />
+
+### arp
+<img width="1366" height="768" alt="Screenshot 2026-05-25 083550" src="https://github.com/user-attachments/assets/07a73c55-24d3-43bf-8d09-e8ba1f596b5e" />
+
+### systeminfo
+
+
+<img width="1366" height="768" alt="Screenshot 2026-05-25 083730" src="https://github.com/user-attachments/assets/1e42f3b2-addd-4534-a039-f296ac965cff" />
 
 
 ## Result
